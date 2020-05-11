@@ -1,0 +1,15 @@
+{
+    "name": "asus/project",
+    "authors": [
+        {
+            "name": "AsylbekBektaev",
+            "email": "bektaev2020@bk.ru"
+        }
+    ],
+    "require": {},
+      "autoload": {
+    	"psr-4": {
+    		"CL\\": "app\\"
+    	}
+    }
+}
