@@ -6,10 +6,34 @@
     public $log;
     public $pas;
     public $name;
+    public $cou;
      private $dbManager;
       public function __construct(){
          $this->dbManager = new DBManager("localhost", "bitlab", "root", "");
       }
+
+        public function counts(){
+          try{
+            $query = $this->dbManager->getConnection()->prepare("SELECT * FROM `kaz`");
+            $query->execute();
+            $result = $query->fetchAll();
+             return $result;
+         }catch(Exception $e){
+            echo $e->getMessage();
+         }
+        }
+
+        public function citys(){
+          try{
+            $query = $this->dbManager->getConnection()->prepare("SELECT * FROM `cit` WHERE cit.couname=:id");
+            $query->execute(['id'=>$this->cou]);
+            $result = $query->fetchAll();
+             return $result;
+         }catch(Exception $e){
+            echo $e->getMessage();
+         }
+        }
+
       public function getAllproduct(){
          try{
             $query = $this->dbManager->getConnection()->prepare("SELECT * FROM `pro`");
@@ -33,14 +57,14 @@
       }
 
 
-      function Reg(){
+      function Regs(User $us){
       $conn = new PDO('mysql:host=localhost;dbname=bitlab','root','');
     $sql="INSERT INTO `tusers`(login,password,full_name) VALUES (:log,:pas,:fn);";
         $query = $conn->prepare($sql);
         $query->execute([
-          'log'=>$this->log,
-            'pas'=>$this->pas,
-          'fn'=>$this->name
+          'log'=>$us->log,
+            'pas'=>$us->pas,
+          'fn'=>$us->name
           
         ]);
       }

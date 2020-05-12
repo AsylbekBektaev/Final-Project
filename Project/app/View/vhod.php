@@ -1,3 +1,4 @@
+<?php require_once('modal.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +32,7 @@
 		    <label  class="form-check-label text-light" for="exampleCheck1">Запомнить меня</label>
 		  </div>
 		  <a class=" text-light" href="index.php?act=reg" >Зарегистрироваться</a><br>
-		  <button id="but" class="btn btn-primary mt-2">Войти</button>
+		  <button id="but" class="btn btn-warning mt-2">Войти</button>
 			<!-- </form> -->
 		</div>
 	</div>
@@ -45,10 +46,13 @@
 					pas:pas
 				},function(res){
 					let tt=JSON.parse(res);
-					let div="<div  class='w-100 mb-3 mt-3  alert alert-danger' role='alert'>"+tt+"!</div>";
+					let div="<div  class='w-100 mb-3 mt-3  alert alert-dark ' role='alert'>"+tt+"!</div>";
 					$("#bb").html(div);
 				});
 			});
 			</script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>

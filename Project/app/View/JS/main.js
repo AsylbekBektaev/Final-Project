@@ -3,13 +3,7 @@
 
 // счетчик
 
-// menu
-$(document).ready($(document).scroll(function(){
-	$('#nav').removeClass('fixed');
-	if($(window).scrollTop() >20){
-		$('#nav').removeClass('fixed');
-	}
-}));
+
 
 
 

@@ -16,8 +16,8 @@
 <!-- Видео -->
 <div class="intro">
   <div class="video">
-  	<!-- autoplay muted loop -->
-  <video class="video_media" src="app/View/img/Work.mp4"></video>
+  	<!--  -->
+  <video class="video_media" src="app/View/img/Work.mp4" autoplay muted loop></video>
   </div>
   <div class="intro_content">
   <div class="nav_vid">

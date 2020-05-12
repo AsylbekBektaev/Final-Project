@@ -8,13 +8,13 @@
 		<li><a href="#">FOUR</a></li>
 		<li><a href="#">FIVE</a></li>
 	</ul>
-	<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">ОБРАТНАЯ СВЯЗЬ</button>
+	<button type="button" class="btn btn-warning ml-2 mt-2 mb-2" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">ОБРАТНАЯ СВЯЗЬ</button>
 		
 		<?php if(isset($_SESSION['login'])){?>
-			<button type="button" class="btn btn-primary ml-2"><a href="index.php?act=exit">Выйти</a></button>
+			<button type="button" class="btn btn-outline-warning ml-2 mt-2 mb-2"><a href="index.php?act=exit">Выйти</a></button>
 		<?php
 		}else{?>
-			<button type="button" class="btn btn-primary ml-2"><a href="index.php?act=vhod">Войти</a></button>
+			<button type="button" class="btn btn-outline-warning ml-2  mt-2 mb-2"><a href="index.php?act=vhod">Войти</a></button>
 		<?php
 		}?>
 		

@@ -8,6 +8,19 @@
       public function __construct(){
          $this->user =new User();
       }
+
+    public function count(){
+      $count = $this->user->counts();
+       echo json_encode($count);
+        }
+
+    public function city(){
+      $us = new User();
+    $us->cou = $_POST['cou'];
+    $hh=$us->citys(); 
+    echo json_encode($hh);
+   }
+
        public function selectproduct(){
          $product = $this->user->getAllproduct();
          $_REQUEST['PRO_LIST'] = $product;
@@ -91,13 +104,12 @@
 
       if( isset($_POST['log']) && !empty($_POST['log']) && isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['pas1']) && !empty($_POST['pas1']) && isset($_POST['pas2']) && !empty($_POST['pas2'])){
 
-
         $nnn=true;
            $loggo = $this->user->users();
         foreach ($loggo as  $value) {
           if($_POST['log'] === $value['login']){
             $nnn=false;
-            echo "<div  class='w-100 mb-3 mt-3  alert alert-danger' role='alert'>Ваш Email есть в базе!</div>";
+            echo "<div  class='w-100 mb-3 mt-3  alert alert-dark' role='alert'>Ваш Email есть в базе!</div>";
             $login="";
           }
         }
@@ -108,7 +120,7 @@
 
           // проверка пароля
         if($_POST['pas1'] != $_POST['pas2']){
-          echo "<div  class='w-100 mb-3 mt-3  alert alert-danger' role='alert'>Пароли не совпадают!</div>";
+          echo "<div  class='w-100 mb-3 mt-3  alert alert-dark' role='alert'>Пароли не совпадают!</div>";
           $password="";
           
         }else{
@@ -127,17 +139,19 @@
         }else{
           if(isset($login) && !empty($login) && isset($name) && !empty($name) && isset($password) && !empty($password) ){
            
-            $this->user;
-            $this->user->log=$login;
-            $this->user->pas=$password;
-            $this->user->name=$name;
+          $us = new User();
+         $us->log=$login;
+         $us->pas=$password;
+         $us->name=$name;
+         $this->user->Regs($us);
+ 
 
-            echo "<div  class='w-100 mb-3 mt-3  alert alert-danger' role='alert'>Вы Зарегрестрировались!</div>";
+            echo "<div  class='w-100 mb-3 mt-3  alert alert-dark' role='alert'>Вы Зарегрестрировались!</div>";
           }
         }
 
       }else{
-        echo "<div  class='w-100 mb-3 mt-3  alert alert-danger' role='alert'>НЕ ВСЕ ПОЛЯ ЗАПОЛНЕНЫ!</div>";
+        echo "<div  class='w-100 mb-3 mt-3  alert alert-dark' role='alert'>НЕ ВСЕ ПОЛЯ ЗАПОЛНЕНЫ!</div>";
 
       }
   }catch(PDOException $e){
@@ -163,7 +177,9 @@
           // echo json_encode('ВЫ ПРОХОДИТЕ ДАЛЬШЕ Логин и Пароль правильный!')
            session_start();
            $_SESSION['login']=$_POST['log'];
-           header("Refresh:0"); 
+           
+           $string3="Добро пожаловать";
+           echo json_encode($string3);
             // return"vhod";
         }
       }
